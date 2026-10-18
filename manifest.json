@@ -1,0 +1,12 @@
+{
+  "name": "کانی پەند | گەنجینەی پەندی کوردی",
+  "short_name": "کانی پەند",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
