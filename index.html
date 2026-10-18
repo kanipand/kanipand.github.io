@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b55">
+  <meta name="description" content="کانی پەند؛ گەنجینەی پەندی کوردی بە سۆرانی و بادینی">
+  <title>کانی پەند | گەنجینەی پەندی کوردی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="کانی پەند">
+     
+<img src="kani-logo.png" alt="لۆگۆی کانی پەند"
+style="width:60px;height:60px;object-fit:contain;border-radius:12px;">
+
+      <span><strong>کانی پەند</strong><small>گەنجینەی دانایی کوردی</small></span>
+    </a>
+    <div class="header-actions">
+      <button id="languageBtn" class="btn btn-ghost" type="button" aria-label="گۆڕینی زاراوە">سۆرانی ▾</button>
+      <button id="themeBtn" class="icon-btn" type="button" aria-label="گۆڕینی ڕووکار" title="گۆڕینی ڕووکار">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">🌿 وشەیەک، داناییەکی بێکۆتایی</span>
+      <h1>لە کانی پەندەوە،<br><span>ئاوی دانایی بنۆشە</span></h1>
+      <p>پەندە کوردییەکان بخوێنەوە، دڵخوازەکانت هەڵبژێرە و دانایی لەگەڵ کەسانی تر هاوبەش بکە.</p>
+      <div class="hero-stats">
+        <div><strong id="totalCount">٠</strong><span>پەند</span></div>
+        <div><strong>٦</strong><span>پۆل</span></div>
+        <div><strong>٢</strong><span>زاراوە</span></div>
+      </div>
+    </section>
+
+    <section class="daily-card" aria-labelledby="dailyHeading">
+      <div class="daily-icon">☀</div>
+      <div class="daily-content">
+        <span class="section-kicker" id="dailyHeading">پەندی ئەمڕۆ</span>
+        <p id="dailyQuote">پەندێکی جوان بۆ هەر ڕۆژێک...</p>
+        <small id="dailyCategory"></small>
+      </div>
+      <button id="dailyCopyBtn" class="btn btn-light" type="button">📋 کۆپی</button>
+    </section>
+
+    <section class="toolbar" aria-label="گەڕان و پۆلێن">
+      <label class="search-box">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="بگەڕێ لە ناو پەندەکان..." autocomplete="off">
+      </label>
+      <label class="select-wrap">
+        <span class="sr-only">پۆل</span>
+        <select id="categorySelect" aria-label="هەڵبژاردنی پۆل">
+          <option value="all">هەموو پۆلەکان</option>
+          <option value="life">پەندی ژیانی</option>
+          <option value="love">پەندی خۆشەویستی</option>
+          <option value="family">پەندی دایک و باوک</option>
+          <option value="friendship">پەندی هاوڕێیەتی</option>
+          <option value="wisdom">پەندی دانایی و ئەزموون</option>
+          <option value="society">پەندی کۆمەڵایەتی</option>
+        </select>
+      </label>
+    </section>
+
+    <nav class="category-chips" aria-label="پۆلەکان">
+      <button class="chip active" data-category="all" type="button">هەمووی</button>
+      <button class="chip" data-category="life" type="button">🌱 ژیان</button>
+      <button class="chip" data-category="love" type="button">💗 خۆشەویستی</button>
+      <button class="chip" data-category="family" type="button">🏡 دایک و باوک</button>
+      <button class="chip" data-category="friendship" type="button">🤝 هاوڕێیەتی</button>
+      <button class="chip" data-category="wisdom" type="button">💡 دانایی</button>
+      <button class="chip" data-category="society" type="button">🌍 کۆمەڵایەتی</button>
+    </nav>
+
+    <section class="section-heading">
+      <div><span class="section-kicker">گەنجینەی کوردی</span><h2 id="listHeading">پەندەکان</h2></div>
+      <button id="randomBtn" class="btn btn-primary" type="button">🔀 پەندی هەڕەمەکی</button>
+    </section>
+
+    <section id="quoteGrid" class="quote-grid" aria-live="polite"></section>
+    <p id="emptyState" class="empty-state hidden">هیچ پەندێک نەدۆزرایەوە. وشەیەکی تر تاقی بکەرەوە یان پەندێکی نوێ زیاد بکە.</p>
+
+    <section class="favorites-section">
+      <div class="section-heading">
+        <div><span class="section-kicker">هەڵبژاردەکانت</span><h2>❤️ پەندە دڵخوازەکان</h2></div>
+        <span id="favoriteCount" class="count-badge">٠ پەند</span>
+      </div>
+      <div id="favoritesList" class="favorites-list"></div>
+    </section>
+
+    <section class="add-section">
+      <div class="add-intro">
+        <span class="add-symbol">＋</span>
+        <span class="section-kicker">بەشدار بە لە گەنجینەکە</span>
+        <h2>پەندی خۆت زیاد بکە</h2>
+        <p>پەندێکی جوانت هەیە؟ لەگەڵ ئێمە هاوبەشی بکە.</p>
+      </div>
+      <form id="addQuoteForm" class="add-form">
+        <label>پەندەکە
+          <textarea id="newQuoteSorani" rows="3" maxlength="300" required placeholder="پەندەکەت لێرە بنووسە..."></textarea>
+        </label>
+        <label>وەشانی بادینی (ئارەزوومەندانە)
+          <textarea id="newQuoteBadini" rows="2" maxlength="300" placeholder="وەشانی بادینی بنووسە..."></textarea>
+        </label>
+        <label>پۆلی پەند
+          <select id="newQuoteCategory" required>
+            <option value="life">پەندی ژیانی</option>
+            <option value="love">پەندی خۆشەویستی</option>
+            <option value="family">پەندی دایک و باوک</option>
+            <option value="friendship">پەندی هاوڕێیەتی</option>
+            <option value="wisdom">پەندی دانایی و ئەزموون</option>
+            <option value="society">پەندی کۆمەڵایەتی</option>
+          </select>
+        </label>
+        <button class="btn btn-primary submit-btn" type="submit">＋ زیادکردنی پەند</button>
+        <p id="formMessage" class="form-message" role="status"></p>
+      </form>
+    </section>
+    <footer><span class="brand-mark">❋</span> کانی پەند <span>— دانایی کوردی بۆ هەمووان</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
