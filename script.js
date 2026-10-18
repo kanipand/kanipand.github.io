@@ -1,3 +1,22 @@
+function changeLanguage(lang) {
+    // ڕێکخستنی ئاڕاستەی زمانەکە (ڕاست بۆ چەپ یان چەپ بۆ ڕاست)
+    if (lang === 'en' || lang === 'ru') {
+        document.documentElement.setAttribute('dir', 'ltr');
+    } else {
+        document.documentElement.setAttribute('dir', 'rtl');
+    }
+    
+    // زمانەکەی ناو تاگی html ش دەگۆڕێت
+    document.documentElement.setAttribute('lang', lang);
+    
+    // گۆڕینی هەموو ئەو دەقانەی data-i18n یان هەیە
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+}
 const categoryNames = {
   life: "پەندی ژیانی",
   love: "پەندی خۆشەویستی",
@@ -243,9 +262,27 @@ $("#addQuoteForm").addEventListener("submit", async event => {
   $("#formMessage").textContent = "سوپاس! پەندەکەت نێردرا و دوای پشکنین دەردەکەوێت 🌿";
   showToast("پەندەکە نێردرا بۆ پشکنین ✅");
 });
-
 applyTheme(localStorage.getItem(STORAGE.theme) || "light");
 $("#languageBtn").textContent = language === "sorani" ? "سۆرانی ▾" : "بادینی ▾";
 renderQuotes();
 renderDailyQuote();
 loadCommunityQuotes();
+function changeLanguage(lang) {
+    // ڕێکخستنی ئاڕاستەی زمانەکە (ڕاست بۆ چەپ یان چەپ بۆ ڕاست)
+    if (lang === 'en' || lang === 'ru') {
+        document.documentElement.setAttribute('dir', 'ltr');
+    } else {
+        document.documentElement.setAttribute('dir', 'rtl');
+    }
+    
+    // زمانەکەی ناو تاگی html ش دەگۆڕێت
+    document.documentElement.setAttribute('lang', lang);
+    
+    // گۆڕینی هەموو ئەو دەقانەی data-i18n یان هەیە
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+}
