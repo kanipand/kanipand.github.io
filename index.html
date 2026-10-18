@@ -20,7 +20,14 @@ style="width:60px;height:60px;object-fit:contain;border-radius:12px;">
       <span><strong>کانی پەند</strong><small>گەنجینەی دانایی کوردی</small></span>
     </a>
     <div class="header-actions">
-      <button id="languageBtn" class="btn btn-ghost" type="button" aria-label="گۆڕینی زاراوە">سۆرانی ▾</button>
+      <select id="languageSelect" onchange="changeLanguage(this.value)" class="btn btn-ghost">
+    <option value="ckb">کوردی</option>
+    <option value="en">English</option>
+    <option value="ar">العربية</option>
+    <option value="fa">فارسی</option>
+    <option value="ru">Русский</option>
+</select>
+
       <button id="themeBtn" class="icon-btn" type="button" aria-label="گۆڕینی ڕووکار" title="گۆڕینی ڕووکار">🌙</button>
     </div>
   </header>
@@ -134,5 +141,8 @@ style="width:60px;height:60px;object-fit:contain;border-radius:12px;">
 <!-- بۆ ئەوەی وێبسایتەکە وەک ئەپێکی سەربەخۆ بکرێتەوە بێ نیشاندانی ڕووکاری خوارەوەی سەفاری -->
 <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- نموونەی چۆنیەتی زیادکردنی بۆ تاگەکان -->
+<strong data-i18n="siteName">کانی پەند</strong>
+<span data-i18n="description">گەنجینەی پەندی کوردی</span>
 </body>
 </html>
